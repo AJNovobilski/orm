@@ -9,6 +9,12 @@ class Product extends Model {}
 // set up fields and rules for Product model
 Product.init(
   {
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
+    },
 
     product_name: {
       type: DataTypes.STRING,
@@ -30,9 +36,9 @@ Product.init(
         isNumeric: true,
       }
     },
-    category_id: {
+    category2_id: {
 type: DataTypes.INTEGER,
-allowNull: false,
+allowNull: true,
 references: {
   model: 'category',
   key: 'id',

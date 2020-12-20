@@ -3,9 +3,10 @@ const { Tag, Product, ProductTag } = require('../../models');
 
 // The `/api/tags` endpoint
 
+// get all tags
 router.get('/', async (req, res) => {
   try {
-    const tagdata = await Category.findAll();
+    const tagdata = await ProductTag.findAll();
     res.status(200).json(tagdata);
   } catch (err) {
     res.status(500).json(err);
@@ -49,7 +50,7 @@ router.delete('/:id', async (req, res) => {
       }
     });
 
-    if (!catdata) {
+    if (!tagdata) {
       res.status(404).json({ message: 'No Tag found with this id!' });
       return;
     }
@@ -58,5 +59,7 @@ router.delete('/:id', async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }});
+
+  
 
 module.exports = router;
